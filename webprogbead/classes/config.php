@@ -10,13 +10,9 @@ function getConfig($configName)
             );
             break;
 
-        case "header":
-            return array();
-            break;
-
         case "menu":
             $menu = array();
-            $menu['bal']['default']                  = array('class' => 'main',      'method' => 'index',       'parameters' => array(), 'text' => 'Főoldal');
+            $menu['bal']['default']                  = array('class' => 'main',      'method' => 'index',       'parameters' => array(), 'text' => 'Az otthon');
             $menu['bal']['lakoink']                  = array('class' => 'lakoink',   'method' => 'index',       'parameters' => array(), 'text' => 'Lakóink');
             $menu['bal']['galeria']                  = array('class' => 'galeria',   'method' => 'index',       'parameters' => array(), 'text' => 'Galéria');
             $menu['bal']['kapcsolat']['group']       = array('group' => 'Kapcsolat');
@@ -26,10 +22,6 @@ function getConfig($configName)
             $menu['bal']['orig']                     = array('link'  => 'http://patronushaz.hu',                'parameters' => array(), 'text' => 'Eredeti honlap');
             $menu['jobb']['login']                   = array('class' => 'user',      'method' => 'login',       'parameters' => array(), 'text' => 'Bejelentkezés');
             return $menu;
-            break;
-
-        case "footer":
-            return array();
             break;
 
         case "db":

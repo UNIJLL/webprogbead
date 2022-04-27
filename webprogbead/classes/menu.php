@@ -1,19 +1,35 @@
 <?php
 class menu
 {
-    public function __construct()
-    {
-        $this->db = getInstance("db");
-    }
+    // public function __construct()
+    // {
+    //     $this->db = getInstance("db");
+    // }
 
     public function getHeader()
     {
     ?>
-        <header class="section-header bg-warning py-4">
+        <header class="section-header">
             <div class="container">
-                <h3>Header</h3>
+                <img src="<?php echo BASE . 'images/patronus.png' ?>" width="150" alt="">
             </div>
         </header>
+    <?php
+    }
+
+    public function getFooter()
+    {
+    ?>
+        <footer class="section-footer">
+            <div class="container text-center">
+                Támogatóink:
+                <img src="<?php echo BASE . 'images/rsz_21eon_logo700_300.jpg' ?>" width="100" alt="">
+                <img src="<?php echo BASE . 'images/leier.png' ?>" width="100" alt="">
+                <img src="<?php echo BASE . 'images/cewe.png' ?>" width="100" alt="">
+                <img src="<?php echo BASE . 'images/itsh.png' ?>" width="100" alt="">
+                <img src="<?php echo BASE . 'images/ozdi_acelmuvek.png' ?>" width="100" alt="">
+            </div>
+        </footer>
     <?php
     }
 

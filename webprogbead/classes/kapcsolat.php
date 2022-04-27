@@ -8,7 +8,7 @@ class kapcsolat
 
     public function elerhetoseg()
     {
-        echo "kapcsolat elerhetoseg";
+        loadView('elerhetoseg');
     }
     
     public function uzenet()
