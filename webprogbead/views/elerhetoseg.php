@@ -1,5 +1,6 @@
+<?php if (!defined('BASE_PATH')) exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="<?php echo $_SESSION['lang']; ?>">
 
 <head>
     <?php getHead(); ?>
@@ -7,11 +8,10 @@
 
 <body>
     <div class="container">
-
-        <?php getInstance('menu')->getHeader(); ?>
+        <?php getHeader(); ?>
         <?php getInstance('menu')->getMenu(); ?>
-        <p></p>
-        <h2>Elérhetőség</h2>
+        <br>
+        <h1>Elérhetőség</h1><br>
         <address>
             <strong>Patrónus Ház Közhasznú Nonprofit Kft.</strong><br>
             Székhey: 2100 Gödöllő, Zarándok u. 5.<br>
@@ -34,8 +34,8 @@
         </address>
         <br>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.4636255750124!2d19.332305015871864!3d47.61711839524413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741ceb6a3e390db%3A0xa21ca47286ba7ec8!2zR8O2ZMO2bGzFkSwgUsOpdCB1LiA0MiwgMjEwMA!5e0!3m2!1shu!2shu!4v1649446188783!5m2!1shu!2shu" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <?php getFooter(); ?>
     </div>
-    <?php getInstance('menu')->getFooter(); ?>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
+<?php if (!defined('BASE_PATH')) exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="<?php echo $_SESSION['lang']; ?>">
 
 <head>
     <?php getHead(); ?>
@@ -7,12 +8,11 @@
 
 <body>
     <div class="container">
-
-        <?php getInstance('menu')->getHeader(); ?>
+        <?php getHeader(); ?>
         <?php getInstance('menu')->getMenu(); ?>
         <img src="<?php echo BASE . 'images/rsz_telefonos_kp1b.jpeg' ?>" width="100%" alt="">
-        <p></p>
-        <h2>Az otthon</h2>
+        <br><br>
+        <h1>Az otthon</h1>
         <p>Bentlakásos otthonunk teljes körű ellátást biztosít 12 autista, középsúlyos értelmi fogyatékos lakója számára.</p>
         <p>Lakóinkat privát életterük megőrzése céljából egyágyas szobákban helyezzük el.</p>
         <p>Az otthonon belül a tágas közös étkező-nappali kialakítása mellett sportszobát, sószobát, relaxációs szobát és kézműves foglalkozásra alkalmas helységeket is igénybe vehetnek a lakók.</p>
@@ -27,8 +27,8 @@
             </video>
         </div>
         <br><br>
+        <?php getFooter(); ?>
     </div>
-    <?php getInstance('menu')->getFooter(); ?>
 </body>
 
 </html>

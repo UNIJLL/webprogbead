@@ -1,5 +1,6 @@
+<?php if(!defined('BASE_PATH')) exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="<?php echo $_SESSION['lang']; ?>">
 
 <head>
     <?php getHead(); ?>

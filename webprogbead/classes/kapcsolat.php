@@ -1,10 +1,10 @@
-<?php
+<?php if(!defined('BASE_PATH')) exit('No direct script access allowed');
+
 class kapcsolat
 {
-	public function __construct() 
-    {
-        $this->db = getInstance("db");
-	}
+	// public function __construct() 
+    // {
+	// }
 
     public function elerhetoseg()
     {

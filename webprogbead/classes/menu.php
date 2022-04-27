@@ -1,39 +1,12 @@
-<?php
+<?php if (!defined('BASE_PATH')) exit('No direct script access allowed');
+
 class menu
 {
     // public function __construct()
     // {
-    //     $this->db = getInstance("db");
     // }
 
-    public function getHeader()
-    {
-    ?>
-        <header class="section-header">
-            <div class="container">
-                <img src="<?php echo BASE . 'images/patronus.png' ?>" width="150" alt="">
-            </div>
-        </header>
-    <?php
-    }
-
-    public function getFooter()
-    {
-    ?>
-        <footer class="section-footer">
-            <div class="container text-center">
-                Támogatóink:
-                <img src="<?php echo BASE . 'images/rsz_21eon_logo700_300.jpg' ?>" width="100" alt="">
-                <img src="<?php echo BASE . 'images/leier.png' ?>" width="100" alt="">
-                <img src="<?php echo BASE . 'images/cewe.png' ?>" width="100" alt="">
-                <img src="<?php echo BASE . 'images/itsh.png' ?>" width="100" alt="">
-                <img src="<?php echo BASE . 'images/ozdi_acelmuvek.png' ?>" width="100" alt="">
-            </div>
-        </footer>
-    <?php
-    }
-
-    public function getLink($menuItem)
+    private function getLink($menuItem)
     {
         if (isset($menuItem['class']) && isset($menuItem['method']) && $menuItem['method'] != 'index') {
             return BASE . $menuItem['class'] . '/' . $menuItem['method'] . ($menuItem['parameters'] === array() ? '' : '/' . implode('/', $menuItem['parameters']));
@@ -44,13 +17,13 @@ class menu
         }
     }
 
-    public function getActive($menuItem)
+    private function getActive($menuItem)
     {
         if (isset($menuItem['class']) && isset($menuItem['method']) && $menuItem['class'] == TASK_CLASS && $menuItem['method'] == TASK_METHOD) return ' active';
         return '';
     }
 
-    public function getNav($menuDef, $level = 0)
+    private function getNav($menuDef, $level = 0)
     {
         $result = "";
         foreach ($menuDef as $key => $menuItem) {
@@ -72,7 +45,6 @@ class menu
                     $result .= $this->getNav($menuItem, $level + 1);
                     $result .= '</ul>';
                 }
-
             } elseif (isset($menuItem['class']) || isset($menuItem['link'])) {
 
                 if ($level == 0) {
@@ -80,7 +52,6 @@ class menu
                 } else {
                     $result .= '<li><a class="dropdown-item" href="' . $this->getLink($menuItem) . '"> ' . $menuItem['text'] . ' </a></li>';
                 }
-                
             } else {
                 trigger_error("Invalid menu definition: " . $key, E_USER_ERROR);
             }
@@ -92,7 +63,8 @@ class menu
     public function getMenu()
     {
         $menuDef = getConfig('menu');
-    ?>
+        $msgs = getInstance('messages')->getMessages();
+?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <!-- <a class="navbar-brand" href="#">Brand</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
@@ -107,6 +79,15 @@ class menu
                 </ul>
             </div> <!-- navbar-collapse.// -->
         </nav>
-    <?php
+        <div id="JLLMsgArea">
+            <?php
+            if (count($msgs) > 0) {
+                foreach ($msgs as $key => $msgHtml) {
+                    echo $msgHtml;
+                }
+            }
+            ?>
+        </div>
+<?php
     }
 }

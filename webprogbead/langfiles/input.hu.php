@@ -1,0 +1,22 @@
+<?php defined('BASE_PATH') OR exit('No direct script access allowed');
+
+$lang['input_pwRules']                   = 'A jelszó hossza 8-50 karakter lehet és alfanumerikus karakterrel kezdődik és végződik.<br>Tartalmaznia kell legalább egy kisbetűt, nagybetűt, számot illetve speciális karaktert: !@#$%^&*_<.>?|';
+$lang['input_userNameRules']             = 'A bejelentkezési név hossza 3-30 karakter lehet.<br>Csak ékezet nélküli kis és nagybetűket, pontot és aláhúzás karaktert tartalmazhat.<br>A pont és aláhúzás karakter nem lehet az elején vagy a végén, illetve nem lehetnek egymás mellett.';
+$lang['input_nameRules']                 = 'A név csak betűket, szóközt, aposztófot és kötőjelet tartalmazhat, hossza 3-50 karakter lehet!';
+$lang['input_monogramRules']             = 'A monogram csak ékezet nélküli kis és nagybetűket vagy szomokat tartalmazhat, hossza 2-5 karakter lehet!';
+$lang['input_phoneRules']                = 'A telefonszám formátuma: +36 70 123-4567';
+$lang['input_illegalCountryCode']        = 'Nem megfelelő nyelvi vagy országkód!';
+$lang['input_dateNotValid']              = 'Hibás dátum';
+$lang['input_datetimeNotValid']          = 'Hibás időpont';
+$lang['input_textNotValid']              = 'A megadott szöveg túl hosszú vagy kódot tartalmaz!';
+$lang['input_en_textNotValid']           = 'A megadott szöveg nem tartalmazhat ékezetes karaktereket!';
+$lang['input_alphabetOnlyNotValid']      = 'A megadott szöveg csak angol karaktereket tartalmazhat!';
+$lang['input_required']                  = 'A mezőt kötelező kitölteni!';
+$lang['input_notValidEmail']             = 'Valós email címet adjon meg!';
+$lang['input_pozIntNotValid']            = 'A megadott adat nem pozitív egész szám!';
+$lang['input_pleaseSelectListElement']   = 'Válasszon lista elemet!';
+$lang['input_intNotValid']               = 'A megadott adat nem egész szám!';
+$lang['input_floatNotValid']             = 'A megadott adat nem szám!';
+$lang['input_filenameNotValid']          = 'Valós fájlnevet adjon meg!';
+$lang['input_urlNotValid']               = 'Valós linket adjon meg!';
+$lang['input_lenghtNotValid']            = 'A megadott szöveg hossza nem megengedett!';

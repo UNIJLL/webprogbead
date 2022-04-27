@@ -4,6 +4,8 @@ define('BASE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/' . explode('/', str_replace($
 define('SYSTEM_PATH', BASE_PATH . 'classes/');
 define('VIEWS_PATH', BASE_PATH . 'views/');
 define('STYLE_PATH', BASE_PATH . 'styles/');
+define('LANG_PATH', BASE_PATH . 'langfiles/');
+define('PICT_PATH', BASE_PATH . 'pictures/');
 
 define('ENVIRONMENT', 'development');
 // define('ENVIRONMENT', 'production');
@@ -23,7 +25,11 @@ switch (ENVIRONMENT) {
         trigger_error("The application environment is not set correctly.", E_USER_ERROR);
 }
 
+@session_start();
 require_once(SYSTEM_PATH . 'config.php');
+if (!isset($_SESSION['lang'])) $_SESSION['lang'] = getConfig('default_lang');
+getInstance('lang')->loadLang('base');
+
 $route = explode("/", $_SERVER['REQUEST_URI']);
 define("TASK_CLASS", isset($route[2]) && $route[2] > "" ? $route[2] : "main");
 define("TASK_METHOD", isset($route[3]) && $route[3] > "" ? $route[3] : "index");

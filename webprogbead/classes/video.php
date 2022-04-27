@@ -1,9 +1,9 @@
-<?php
+<?php if(!defined('BASE_PATH')) exit('No direct script access allowed');
+
 class video
 {
 	// public function __construct() 
     // {
-    //     $this->db = getInstance("db");
 	// }
 
     public function getYoutubeIDFromUrl($url)

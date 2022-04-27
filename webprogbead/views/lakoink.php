@@ -1,5 +1,6 @@
+<?php if(!defined('BASE_PATH')) exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="<?php echo $_SESSION['lang']; ?>">
 
 <head>
     <?php getHead(); ?>
@@ -7,10 +8,11 @@
 
 <body>
     <div class="container">
-
-        <?php getInstance('menu')->getHeader(); ?>
+        <?php getHeader(); ?>
         <?php getInstance('menu')->getMenu(); ?>
-        <p></p>
+        <br>
+        <h1>Lakóink</h1>
+        <br>
         <div class="row">
             <div class="col-md-6">
                 <img class="rounded float-left" src="<?php echo BASE . 'images/levi.png' ?>" width="100%" alt="">
@@ -28,8 +30,8 @@
             </div>
         </div>
         <br>
+        <?php getFooter(); ?>
     </div>
-    <?php getInstance('menu')->getFooter(); ?>
 </body>
 
 </html>
