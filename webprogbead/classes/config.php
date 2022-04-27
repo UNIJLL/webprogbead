@@ -59,7 +59,7 @@ function getConfig($configName)
                 "driver"   => "mysql",
                 "server"   => "localhost",
                 "username" => "root",
-                "password" => "XL5DVkUe7ZzCuu9g7jyo",
+                "password" => "",
                 "dbname"   => "webprogbead",
             );
             break;
