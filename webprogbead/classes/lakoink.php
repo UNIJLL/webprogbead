@@ -1,5 +1,5 @@
 <?php
-class main
+class lakoink
 {
 	public function __construct() 
     {
@@ -8,6 +8,6 @@ class main
     
     public function index()
     {
-        loadView("mainpage");
+        echo "lakoink index";
     }
 }

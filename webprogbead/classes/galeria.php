@@ -1,5 +1,5 @@
 <?php
-class main
+class galeria
 {
 	public function __construct() 
     {
@@ -8,6 +8,6 @@ class main
     
     public function index()
     {
-        loadView("mainpage");
+        echo "galeria index";
     }
 }

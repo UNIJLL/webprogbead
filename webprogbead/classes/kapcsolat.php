@@ -5,14 +5,19 @@ class kapcsolat
     {
         $this->db = getInstance("db");
 	}
-    
+
     public function elerhetoseg()
     {
-        echo "elerhetoseg";
+        echo "kapcsolat elerhetoseg";
     }
-
-    public function index()
+    
+    public function uzenet()
     {
-        echo "kapcsolat index";
+        echo "uzenet";
+    }
+    
+    public function uzenetek()
+    {
+        echo "uzenetek";
     }
 }
