@@ -34,18 +34,12 @@ class db
 
         foreach ($rec as $key => $value) {
             $fields[] = $key;
-            $values[] = ':'.$key;
-            $parameters[':'.$key] = $value;
+            $values[] = ':' . $key;
+            $parameters[':' . $key] = $value;
         }
 
-        $this->query("insert into $tablename(".implode(',', $fields).") values(".implode(',', $values).")", $parameters);
+        $this->query("insert into $tablename(" . implode(',', $fields) . ") values(" . implode(',', $values) . ")", $parameters);
         return $this->connection->lastInsertId();
-    }
-
-    public function select(string $query, array $parameters = array())
-    {
-        $sth = $this->query($query, $parameters);
-        return $sth->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function selectFirstRecord(string $query, array $parameters = array())
@@ -60,5 +54,15 @@ class db
         $row = $sth->fetch(PDO::FETCH_NUM);
         if ($row === false) return false;
         return $row[0];
+    }
+
+    public function selectIndex(string $query, array $parameters = array(), $key = 'id', $value = 'value')
+    {
+        $result = array();
+        $sth = $this->query($query, $parameters);
+        while ($rec = $sth->fetch(PDO::FETCH_ASSOC)) {
+            $result[$rec[$key]] = $rec[$value];
+        }
+        return $result;
     }
 }

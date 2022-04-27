@@ -7,8 +7,8 @@ define('STYLE_PATH', BASE_PATH . 'styles/');
 define('LANG_PATH', BASE_PATH . 'langfiles/');
 define('PICT_PATH', BASE_PATH . 'pictures/');
 
-define('ENVIRONMENT', 'development');
-// define('ENVIRONMENT', 'production');
+// define('ENVIRONMENT', 'development');
+define('ENVIRONMENT', 'production');
 
 switch (ENVIRONMENT) {
     case 'development':
@@ -31,13 +31,17 @@ if (!isset($_SESSION['lang'])) $_SESSION['lang'] = getConfig('default_lang');
 getInstance('lang')->loadLang('base');
 
 $route = explode("/", $_SERVER['REQUEST_URI']);
-define("TASK_CLASS", isset($route[2]) && $route[2] > "" ? $route[2] : "main");
-define("TASK_METHOD", isset($route[3]) && $route[3] > "" ? $route[3] : "index");
+$route = array_values(array_filter($route, function ($value) {
+    return !is_null($value) && $value !== '' && $value !== 'index.php';
+}));
 
-$i = 4;
+define("TASK_CLASS", isset($route[1]) ? $route[1] : "main");
+define("TASK_METHOD", isset($route[2]) ? $route[2] : "index");
+
+$i = 3;
 $parameters = array();
 
-while (isset($route[$i]) && $route[$i] > "") {
+while (isset($route[$i])) {
     $parameters[] = $route[$i++];
 }
 

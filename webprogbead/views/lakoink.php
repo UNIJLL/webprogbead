@@ -1,4 +1,4 @@
-<?php if(!defined('BASE_PATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASE_PATH')) exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="<?php echo $_SESSION['lang']; ?>">
 
@@ -7,17 +7,15 @@
 </head>
 
 <body>
+    <?php getHeader(); ?>
     <div class="container">
-        <?php getHeader(); ?>
         <?php getInstance('menu')->getMenu(); ?>
-        <br>
-        <h1>Lakóink</h1>
-        <br>
+        <h1 class="mt-4 mb-4">Lakóink</h1>
         <div class="row">
             <div class="col-md-6">
                 <img class="rounded float-left" src="<?php echo BASE . 'images/levi.png' ?>" width="100%" alt="">
             </div>
-            <div class="col-md-6">
+            <article class="col-md-6">
                 <p>Otthonunk egyaránt fogad több területen nagyfokú önállósággal rendelkező autista, illetve értelmi sérült személyt, illetve nagyobb törődést, segítséget igénylő érintettet is. Lakóközösségünkbe szabad helyek esetén az alábbi érintettséggel várjuk lakóinkat:</p>
                 <ul class="list-unstyled">
                     <li>Autizmus</li>
@@ -27,11 +25,10 @@
                     <li>Down szindróma</li>
                     <li>Egyéb értelmi fogyatékosság</li>
                 </ul>
-            </div>
+            </article>
         </div>
-        <br>
-        <?php getFooter(); ?>
     </div>
+    <?php getFooter(); ?>
 </body>
 
 </html>

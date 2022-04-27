@@ -11,28 +11,40 @@ function getConfig($configName)
             );
             break;
 
+        case "description":
+            return "description";
+            break;
+
+        case "keywords":
+            return "";
+            break;
+
         case "default_lang":
             return "hu";
             break;
 
         case "menu":
             $menu = array();
-            $menu['bal']['default']                  = array('class' => 'main',      'method' => 'index',       'parameters' => array(), 'text' => 'Az otthon');
-            $menu['bal']['lakoink']                  = array('class' => 'lakoink',   'method' => 'index',       'parameters' => array(), 'text' => 'Lakóink');
-            $menu['bal']['galeria']                  = array('class' => 'galeria',   'method' => 'index',       'parameters' => array(), 'text' => 'Galéria');
-            $menu['bal']['kapcsolat']['group']       = array('group' => 'Kapcsolat');
-            $menu['bal']['kapcsolat']['elerhetoseg'] = array('class' => 'kapcsolat', 'method' => 'elerhetoseg', 'parameters' => array(), 'text' => 'Elérhetőség');
-            $menu['bal']['kapcsolat']['kapcsform']   = array('class' => 'kapcsolat', 'method' => 'uzenet',      'parameters' => array(), 'text' => 'Üzenet küldése');
-            $menu['bal']['kapcsolat']['uzenetek']    = array('class' => 'kapcsolat', 'method' => 'uzenetek',    'parameters' => array(), 'text' => 'Üzenetek listája');
-            $menu['bal']['orig']                     = array('link'  => 'http://patronushaz.hu',                'parameters' => array(), 'text' => 'Eredeti honlap');
+            $menu['bal']['default']                   = array('class' => 'main',      'method' => 'index',       'parameters' => array(), 'text' => 'Az otthon');
+            $menu['bal']['lakoink']                   = array('class' => 'lakoink',   'method' => 'index',       'parameters' => array(), 'text' => 'Lakóink');
+            $menu['bal']['galeria']                   = array('class' => 'galeria',   'method' => 'index',       'parameters' => array(), 'text' => 'Galéria');
+            $menu['bal']['kapcsolat']['group']        = array('group' => 'Kapcsolat');
+            $menu['bal']['kapcsolat']['elerhetoseg']  = array('class' => 'kapcsolat', 'method' => 'elerhetoseg', 'parameters' => array(), 'text' => 'Elérhetőség');
+            $menu['bal']['kapcsolat']['kapcsform']    = array('class' => 'kapcsolat', 'method' => 'uzenet',      'parameters' => array(), 'text' => 'Üzenet küldése');
 
             if (isset($_SESSION['user']['id'])) {
-                $menu['jobb']['user']['group']       = array('group' => 'Bejelentkezve: ' . $_SESSION['user']['fullname'] . ' (' . $_SESSION['user']['name'] . ')');
-                $menu['jobb']['user']['pictupload']  = array('class' => 'galeria',   'method' => 'upload',      'parameters' => array(), 'text' => 'Képek feltöltése');
-                $menu['jobb']['user']['pwchange']    = array('class' => 'user',      'method' => 'pwchange',    'parameters' => array(), 'text' => 'A jelszó módosítása');
-                $menu['jobb']['user']['logout']      = array('class' => 'user',      'method' => 'logout',      'parameters' => array(), 'text' => 'Kijelentkezés');
+                $menu['bal']['kapcsolat']['uzenetek'] = array('class' => 'kapcsolat', 'method' => 'uzenetek',    'parameters' => array(), 'text' => 'Üzenetek listája');
+            }
+
+            $menu['bal']['orig']                      = array('link'  => 'http://patronushaz.hu',                'parameters' => array(), 'text' => 'Eredeti honlap');
+
+            if (isset($_SESSION['user']['id'])) {
+                $menu['jobb']['user']['group']        = array('group' => 'Bejelentkezve: ' . $_SESSION['user']['fullname'] . ' (' . $_SESSION['user']['name'] . ')');
+                $menu['jobb']['user']['pictupload']   = array('class' => 'galeria',   'method' => 'upload',      'parameters' => array(), 'text' => 'Képek feltöltése');
+                $menu['jobb']['user']['pwchange']     = array('class' => 'user',      'method' => 'pwchange',    'parameters' => array(), 'text' => 'A jelszó módosítása');
+                $menu['jobb']['user']['logout']       = array('class' => 'user',      'method' => 'logout',      'parameters' => array(), 'text' => 'Kijelentkezés');
             } else {
-                $menu['jobb']['login']               = array('class' => 'user',      'method' => 'login',       'parameters' => array(), 'text' => 'Bejelentkezés');
+                $menu['jobb']['login']                = array('class' => 'user',      'method' => 'login',       'parameters' => array(), 'text' => 'Bejelentkezés');
             }
 
             return $menu;
@@ -47,7 +59,7 @@ function getConfig($configName)
                 "driver"   => "mysql",
                 "server"   => "localhost",
                 "username" => "root",
-                "password" => "",
+                "password" => "XL5DVkUe7ZzCuu9g7jyo",
                 "dbname"   => "webprogbead",
             );
             break;
@@ -63,8 +75,8 @@ function getHead()
 ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta name="keywords" content="" /> -->
-    <meta name="description" content="description">
+    <meta name="keywords" content="<?php getConfig("keywords"); ?>" />
+    <meta name="description" content="<?php getConfig("description"); ?>">
     <title><?php getConfig("app")['name']; ?></title>
     <script src="<?php echo BASE; ?>assets/jquery360/jquery-3.6.0.min.js"></script>
     <script src="<?php echo BASE; ?>assets/bootstrap4/js/bootstrap.bundle.min.js" type="text/javascript"></script>
@@ -112,14 +124,14 @@ function getHeader()
 function getFooter()
 {
 ?>
-    <footer class="section-footer">
+    <footer class="section-footer mt-4">
         <div class="container text-center">
             Támogatóink:
-            <img src="<?php echo BASE . 'images/rsz_21eon_logo700_300.jpg' ?>" width="100" alt="">
-            <img src="<?php echo BASE . 'images/leier.png' ?>" width="100" alt="">
-            <img src="<?php echo BASE . 'images/cewe.png' ?>" width="100" alt="">
-            <img src="<?php echo BASE . 'images/itsh.png' ?>" width="100" alt="">
-            <img src="<?php echo BASE . 'images/ozdi_acelmuvek.png' ?>" width="100" alt="">
+            <a href="#"><img src="<?php echo BASE . 'images/rsz_21eon_logo700_300.jpg' ?>" width="100" alt=""></a>
+            <a href="#"><img src="<?php echo BASE . 'images/leier.png' ?>" width="100" alt=""></a>
+            <a href="#"><img src="<?php echo BASE . 'images/cewe.png' ?>" width="100" alt=""></a>
+            <a href="#"><img src="<?php echo BASE . 'images/itsh.png' ?>" width="100" alt=""></a>
+            <a href="#"><img src="<?php echo BASE . 'images/ozdi_acelmuvek.png' ?>" width="100" alt=""></a>
         </div>
     </footer>
 <?php

@@ -8,8 +8,8 @@
 </head>
 
 <body>
+    <?php getHeader(); ?>
     <div class="container">
-        <?php getHeader(); ?>
         <?php getInstance('menu')->getMenu(); ?>
         <div style="width:100%;height:5px;"></div>
         <div id="gallery">
@@ -19,9 +19,8 @@
             }
             ?>
         </div>
-        <br>
-        <?php getFooter(); ?>
     </div>
+    <?php getFooter(); ?>
 </body>
 
 </html>

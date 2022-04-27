@@ -1,7 +1,7 @@
 <?php if (!defined('BASE_PATH')) exit('No direct script access allowed');
 
 if (!isset($_SESSION['user']['id'])) {
-    getInstance("messages")->alertMsg('Jogosulatlan hozzáférés!', 'Feltöltésre csak bejelentkezett felhasználó jogosult.', false);
+    getInstance("messages")->alertMsg('Jogosulatlan hozzáférés!', 'Az oldal elérésére csak bejelentkezett felhasználó jogosult.', false);
     redirect(BASE);
 }
 ?>
@@ -73,18 +73,15 @@ if (!isset($_SESSION['user']['id'])) {
 </head>
 
 <body>
+    <?php getHeader(); ?>
     <div class="container">
-        <?php getHeader(); ?>
         <?php getInstance('menu')->getMenu(); ?>
-        <br>
-        <form id="pictupload_form" name="pictupload_form" action="<?php echo BASE; ?>galeria/uploading" method="post" enctype="multipart/form-data">
+        <form id="pictupload_form" class="mt-4" name="pictupload_form" action="<?php echo BASE; ?>galeria/uploading" method="post" enctype="multipart/form-data">
             <h1>Képek feltöltése</h1>
-            <br>
             <div class="file-loading">
                 <input id="upload" name="upload[]" type="file" multiple>
             </div>
         </form>
-        <br>
     </div>
 </body>
 

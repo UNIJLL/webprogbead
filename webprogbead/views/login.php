@@ -163,8 +163,8 @@
 </head>
 
 <body>
+    <?php getHeader(); ?>
     <div class="container">
-        <?php getHeader(); ?>
         <?php getInstance('menu')->getMenu(); ?>
         <p></p>
         <div id="logreg-forms">
