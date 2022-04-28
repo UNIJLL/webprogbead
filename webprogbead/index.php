@@ -7,8 +7,8 @@ define('STYLE_PATH', BASE_PATH . 'styles/');
 define('LANG_PATH', BASE_PATH . 'langfiles/');
 define('PICT_PATH', BASE_PATH . 'pictures/');
 
-// define('ENVIRONMENT', 'development');
-define('ENVIRONMENT', 'production');
+define('ENVIRONMENT', 'development');
+// define('ENVIRONMENT', 'production');
 
 switch (ENVIRONMENT) {
     case 'development':
